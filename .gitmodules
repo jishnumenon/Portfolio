@@ -1,0 +1,3 @@
+[submodule "ihover"]
+	path = ihover
+	url = https://github.com/gudh/ihover.git
