@@ -5756,7 +5756,7 @@ button.close {
   margin: 10px;
 }
 .modal-content {
-  position: relative;
+  position: ;
   background-color: #fff;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
@@ -5845,7 +5845,7 @@ button.close {
   z-index: 1070;
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: normal;
   line-height: 1.4;
   filter: alpha(opacity=0);

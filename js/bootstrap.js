@@ -2315,3 +2315,166 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+
+
+/**
+ * Author: Heather Corey
+ * jQuery Simple Parallax Plugin
+ *
+ */
+ 
+(function($) {
+ 
+    $.fn.parallax = function(options) {
+ 
+        var windowHeight = $(window).height();
+ 
+        // Establish default settings
+        var settings = $.extend({
+            speed        : 0.15
+        }, options);
+ 
+        // Iterate over each object in collection
+        return this.each( function() {
+ 
+          // Save a reference to the element
+          var $this = $(this);
+ 
+          // Set up Scroll Handler
+          $(document).scroll(function(){
+ 
+                var scrollTop = $(window).scrollTop();
+                      var offset = $this.offset().top;
+                      var height = $this.outerHeight();
+ 
+        // Check if above or below viewport
+      if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
+        return;
+      }
+ 
+      var yBgPosition = Math.round((offset - scrollTop) * settings.speed);
+ 
+                 // Apply the Y Background Position to Set the Parallax Effect
+          $this.css('background-position', 'center ' + yBgPosition + 'px');
+                
+          });
+        });
+    }
+}(jQuery));
+
+$('.bg-1,.bg-3').parallax({
+  speed : 0.15
+});
+
+$('.bg-2').parallax({
+  speed : 0.25
+});
+// Highlight the top nav as scrolling occurs
+$('body').scrollspy({
+    target: '.navbar-fixed-top'
+})
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // add the animation to the popover
+    $('a[rel=popover]').popover().click(function(e) {
+        e.preventDefault();        
+         var open = $(this).attr('data-easein');
+        if(open == 'shake') {
+                  $(this).next().velocity('callout.' + open);
+            } else if(open == 'pulse') {
+              $(this).next().velocity('callout.' + open);
+            } else if(open == 'tada') {
+                $(this).next().velocity('callout.' + open);
+            } else if(open == 'flash') {
+                  $(this).next().velocity('callout.' + open);
+            }  else if(open == 'bounce') {
+                 $(this).next().velocity('callout.' + open);
+            } else if(open == 'swing') {
+                 $(this).next().velocity('callout.' + open);
+            }else {
+             $(this).next().velocity('transition.' + open); 
+            }
+      
+      
+                
+    });
+
+
+   // add the animation to the modal
+$( ".modal" ).each(function(index) {
+   $(this).on('show.bs.modal', function (e) {
+ var open = $(this).attr('data-easein');
+     if(open == 'shake') {
+                 $('.modal-dialog').velocity('callout.' + open);
+            } else if(open == 'pulse') {
+                 $('.modal-dialog').velocity('callout.' + open);
+            } else if(open == 'tada') {
+                 $('.modal-dialog').velocity('callout.' + open);
+            } else if(open == 'flash') {
+                 $('.modal-dialog').velocity('callout.' + open);
+            }  else if(open == 'bounce') {
+                 $('.modal-dialog').velocity('callout.' + open);
+            } else if(open == 'swing') {
+                 $('.modal-dialog').velocity('callout.' + open);
+            }else {
+              $('.modal-dialog').velocity('transition.' + open);
+            }
+             
+}); 
+});
+
+
+
+
